@@ -33,7 +33,7 @@ queue(E, [_|E]).
 
 %dernier(E,L)
 %E est le dernier element de L
-dernier(E,[E]).
+dernier(E,[E]):-!.
 dernier(E,[_|L]) :-
 	dernier(E,L).
 
