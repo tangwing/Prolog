@@ -1,23 +1,23 @@
-%TD 21/11
-%Penser que l'on manipule une liste chain¨¦e
+ï»¿%TD 21/11
+%Penser que l'on manipule une liste chainÃ©e
 
 %appartient(E ,L)
 %E est un element de la liste L
-%§ C'est la condition d'arrête
+%?C'est la condition d'arré˜¾e
 appartient(E, [E|_]).
-%§ C'est la règle qui permet de faire l'itération
+%?C'est la ré‘—le qui permet de faire l'ité–žation
 %  Ici, Prolog essaie de trouver le cas
-%  correspondant la condition d'arrête, en suprimant
-%  pas à pas, l'élément au début de la liste, puisque
-%  on a [_] au début, qui veut dire que cet élément n'est
-%  pas nécessaire de considérer.
+%  correspondant la condition d'arré˜¾e, en suprimant
+%  pas ?pas, l'é–˜é–™ent au dé–Žut de la liste, puisque
+%  on a [_] au dé–Žut, qui veut dire que cet é–˜é–™ent n'est
+%  pas né–essaire de considé–žer.
 appartient(E, [_|L]):-
 	appartient(E, L).
 
 % pourquoi ci-dessous est faux?
-% en fait '_' ici signifie le premier élément
+% en fait '_' ici signifie le premier é–˜é–™ent
 % de la liste, et E est la queue de la liste,
-% qui peut être une sous liste.
+% qui peut é˜¾re une sous liste.
 %appartientFaux(E, [_|E]).
 %appartient(E, [L|_]):-
 	%appartient(E, L).
@@ -45,14 +45,14 @@ concate([E1|Q1],L2,[E1|Q2]):-
 
 %extraire(E,L,R)
 %R=L-E
-extraire(D,[D|E],E).%Pourquoi avec ça on ne
+extraire(D,[D|E],E).%Pourquoi avec é° on ne
 %peut pas obtenir extraire([a], [a,b,c],X)?
 %extraire(E,[L|C],[D|C]):-
 extraire(E,[C|L],[C|D]):-
 	extraire(E,L,D).
 
 %concateliste(LL,LR).
-%LL est une liste de listes on concatène
+%LL est une liste de listes on concaté‘že
 %les elements de LL le resultat est LR.
 concateliste([[A],[B]],[A|B]).
 concateliste([[A|C],[B]],LR):-
@@ -71,27 +71,27 @@ sum_to(N,Res):-
 %-----------------------------------------------------------------------
 %TD2-1
 %renverser(L1,L2)
-%L2 est la lishte "renversée" de L1
-%Version1, déplacer le 1er au dernier
+%L2 est la lishte "renversé–‘" de L1
+%Version1, dé–œlacer le 1er au dernier
 renverser1([],[]):-!.
 renverser1([E|Q], L2):-
 	renverser1(Q, L1),
 	append(L1, [E], L2).
 
-%Version2, déplacer le dernier au permier
+%Version2, dé–œlacer le dernier au permier
 renverser2([],[]):-!.
 renverser2(L1, [E|Q]):-
 %	dernier(E, L1),
 	append(X, [E], L1),
 	renverser2(X, Q).
 
-%Complexité:
+%Complexit?
  %append(Lconnu, X, Y) -> colle, O(n)
  %append( X, Y, Lconnu) -> ciseaux, O(n)
- %renverser1/2 = O(n²).
+ %renverser1/2 = O(n?.
 
 %Version3
-%Comlexité: ça me semble pas mal quand on veut
+%Comlexit? é° me semble pas mal quand on veut
 %savoir 'true' ou 'false', mais pas dans autres cas...
 renverser3([], []):-!.
 renverser3([_|Q], L2):-
@@ -102,7 +102,7 @@ renverser3([_|Q], L2):-
 %Version4
 renverser4(L, R):-
 	renverser43(L, [], R).%[] est comme une var en C ou
-			      %on met le résultat.
+			      %on met le ré–Ÿultat.
 renverser43([], L, L).%Fin
 renverser43([A|L], R, S):-%Boucle
 	renverser43(L, [A|R], S).
@@ -117,8 +117,8 @@ renverser43([A|L], R, S):-%Boucle
 %
 somme(L,R):-
 	somme_3(L, 0, R).
-somme_3([], S, S).%Le 3ème arg est seulement pour
-                 %récupérer le resultat.
+somme_3([], S, S).%Le 3é‘e arg est seulement pour
+                 %ré–upé–žer le resultat.
 somme_3([A|L], S, R):-
 	S1 is S+A,
 	somme_3(L, S1, R).
@@ -145,7 +145,7 @@ somme_synbo2_3([], S, S).
 somme_synbo2_3([A|L], S, R):-
 	somme_synbo2_3(L, S+A, R).
 
-%Version 2, bonne, mais la consommation de mémoire..
+%Version 2, bonne, mais la consommation de mé–™oire..
 somme_synbo3([E], E):-!.
 somme_synbo3([E|[E2|L]],R):-
 	somme_synbo3([E+E2|L], R).
@@ -153,9 +153,9 @@ somme_synbo3([E|[E2|L]],R):-
 
 %--------------------------------------------------------------
 %conterbon(L, V, R).
-%L est une liste de nombres, connus, entrée.
-%V est un nombre, entrée.
-%R est une somme d'élément L, L=V, sortie.
+%L est une liste de nombres, connus, entré–‘.
+%V est un nombre, entré–‘.
+%R est une somme d'é–˜é–™ent L, L=V, sortie.
 %conterbon([3,17,9,12,7], 33, Z) -> Z= 17+9+7
 conterbon([E|_], E, E).
 conterbon([E|L1],V, E+R):-

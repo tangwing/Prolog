@@ -1,4 +1,7 @@
 
+
+
+
 sameset([],[]).
 sameset([E1|L1] ,L):-
 	member(E1, L),
