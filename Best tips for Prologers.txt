@@ -1,0 +1,23 @@
+1, Pay attention to [E] and E.
+2, Don't mistake 'is' and \=.
+3, Be aware of the order of predicates.
+4, The head of a list can consist several elements: [A,B,C|L].
+5, For an algo determinist, there should be no backtracking going on.
+6,
+
+
+
+
+Tips on Writing Recursive Procedures in Prolog(http://www.cse.unsw.edu.au/~billw/cs9414/notes/write-recursive-proc.html)
+
+The Basics - Base Case and Recursive Case(s)
+
+When writing a recursive procedure in Prolog, there will always be at least two rules to code: at least one rule for the base case, or non-recursive case, and at least one rule for the recursive case.
+
+The Base Case
+
+Typically the base-case rule(s) will deal with the smallest possible example(s) of the problem that you are trying to solve - a list with no members, or just one member, for example. If you are working with a tree structure, the base case might deal with an empty tree, or a tree with just one node in it (like tree(empty, a, empty)).
+
+The Recursive Case
+
+To write the recursive case rule(s), you need to think of how the current case of the problem could be solved assuming you had already solved it for all smaller cases. For example, if you were adding a list of 10 numbers, and you had a way of summing the last 9 numbers in the list, then you would do so, then add on the first number on the list. (It might seem more natural to add up the first 9 numbers and then add the last number to the subtotal, but in Prolog it is easy to access the first item in the list, but not the last.)

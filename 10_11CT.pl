@@ -5,3 +5,4 @@ subset([E|L],[E1|A],[E2|B]):-
 	subset(L,A,[E2|B]));
 	(   E2 =E,
 	subset(L,[E1|A],B)).
+

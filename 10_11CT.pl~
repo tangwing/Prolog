@@ -1,0 +1,14 @@
+subset(L,[],L).
+subset(L,L,[]).
+subset([E|L],[E1|A],[E2|B]):-
+	(   E1 =E,
+	subset(L,A,[E2|B]));
+	(   E2 =E,
+	subset(L,[E1|A],B)).
+
+partition5([], L1, L1, L2, L2).
+partition5([ELEM|LISTE], L1, L1OUT, L2, L2OUT) :-
+partition5(LISTE, [ELEM|L1], L1OUT, L2, L2OUT).
+partition5([ELEM|LISTE], L1, L1OUT, L2, L2OUT) :-
+partition5(LISTE, L1, L1OUT, [ELEM|L2], L2OUT).
+partition(L1, L2, L3) :- partition5(L1, [], L2, [], L3).
