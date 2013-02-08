@@ -5,7 +5,7 @@
 
 %Ex 2 Merge sort
 %
-split(L2,0,_,L2):-!.
+split(L2,0,L1,L2):-!.
 split([E|L],N,[E|L1],L2):-
       N2 is N-1,
       split(L,N2,L1,L2).
@@ -38,3 +38,4 @@ bubble_sort([X1|L1],[X1|L2]):-
         bubble_sort(L1,L2).
 
 bubble([E],[E]).
+bubble([]

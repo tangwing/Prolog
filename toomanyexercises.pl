@@ -1,5 +1,9 @@
 
-
+subset_repeat([],[]).
+subset_repeat([E|L],[E|R]):-
+	subset_repeat(L,R).
+subset_repeat([_|L],R):-
+	subset_repeat(L,R).
 
 
 %1.8 --------------------------------
